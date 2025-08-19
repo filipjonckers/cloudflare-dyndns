@@ -53,7 +53,9 @@ EOF
 
 if [ $? -eq 0 ]; then
   echo "DNS record updated successfully."
+  logger "Cloudflare DNS record for $HOSTNAME updated to $IP at $TIMESTAMP"
 else
   echo "Failed to update DNS record."
+  logger "Failed to update Cloudflare DNS record for $HOSTNAME at $TIMESTAMP"
   exit 1
 fi
